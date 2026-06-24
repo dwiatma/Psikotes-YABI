@@ -168,7 +168,7 @@ function sendToGoogleSheet(hasil) {
 
     };
 
-    fetch("PASTE_URL_GOOGLE_APPS_SCRIPT_DISINI", {
+    fetch("https://script.google.com/a/macros/badak.or.id/s/AKfycbyvsLuq4QUWSeg6_QgMdvglkw63NGAkhD53m2v813IMRc1jSfqGKI0ghcRyM5epvDi1/exec", {
 
         method: "POST",
 
