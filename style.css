@@ -1,7 +1,7 @@
 /* Background */
 body{
     background: linear-gradient(rgba(27,94,32,0.75),rgba(27,94,32,0.75)),
-                url("forest-bg.jpg");
+                url("forest-bg.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
