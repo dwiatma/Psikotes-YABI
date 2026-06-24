@@ -168,7 +168,7 @@ function sendToGoogleSheet(hasil) {
 
     };
 
-    fetch("https://script.google.com/a/macros/badak.or.id/s/AKfycbyvsLuq4QUWSeg6_QgMdvglkw63NGAkhD53m2v813IMRc1jSfqGKI0ghcRyM5epvDi1/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbxaZibdQZij2C2WH3DWI85hJkOjdwuorR55hb6S3ETwLZrDOA1cAmAj_W99jL1kfyte/exec", {
 
         method: "POST",
 
