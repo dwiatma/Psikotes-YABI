@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard HR - Psikotes YABI</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+background:#f4f8f3;
+font-family:Segoe UI;
+}
+
+.login-card,
+.dashboard-card{
+max-width:1100px;
+margin:auto;
+margin-top:40px;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1{
+color:#1B5E20;
+}
+
+.table{
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-card" id="loginDiv">
+
+<h2>Dashboard HR Yayasan Badak Indonesia</h2>
+
+<div class="mb-3">
+
+<label>Password</label>
+
+<input type="password"
+id="password"
+class="form-control">
+
+</div>
+
+<button class="btn btn-success"
+onclick="login()">
+Masuk
+</button>
+
+</div>
+
+
+<div class="dashboard-card"
+id="dashboard"
+style="display:none">
+
+<h1>Dashboard Psikotes Kandidat</h1>
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<input
+type="text"
+class="form-control"
+placeholder="Cari Nama Kandidat"
+id="searchInput">
+
+</div>
+
+<div class="col-md-2">
+
+<button class="btn btn-success"
+onclick="loadData()">
+Refresh
+</button>
+
+</div>
+
+</div>
+
+<br>
+
+<table class="table table-bordered table-striped">
+
+<thead>
+
+<tr>
+
+<th>Nama</th>
+<th>Email</th>
+<th>Extraversion</th>
+<th>Agreeableness</th>
+<th>Conscientiousness</th>
+<th>Neuroticism</th>
+<th>Openness</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+
+<hr>
+
+<h3>Radar Chart</h3>
+
+<canvas id="radarChart"></canvas>
+
+</div>
+
+
+
+<script>
+
+const PASSWORD = "YABI2026HR!";
+
+
+function login(){
+
+let pass=document.getElementById("password").value;
+
+if(pass===PASSWORD){
+
+document.getElementById("loginDiv").style.display="none";
+
+document.getElementById("dashboard").style.display="block";
+
+loadData();
+
+}
+else{
+
+alert("Password salah");
+
+}
+
+}
+
+
+function loadData(){
+
+// nanti diganti URL Google Apps Script
+
+fetch("URL_WEB_APP")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+let html="";
+
+data.forEach(item=>{
+
+html+=`
+
+<tr>
+
+<td>${item.nama}</td>
+
+<td>${item.email}</td>
+
+<td>${item.extraversion}</td>
+
+<td>${item.agreeableness}</td>
+
+<td>${item.conscientiousness}</td>
+
+<td>${item.neuroticism}</td>
+
+<td>${item.openness}</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById("tableBody").innerHTML=html;
+
+if(data.length>0){
+
+buatRadar(data[0]);
+
+}
+
+});
+
+}
+
+
+
+function buatRadar(item){
+
+new Chart(document.getElementById("radarChart"),{
+
+type:'radar',
+
+data:{
+
+labels:[
+
+'Extraversion',
+
+'Agreeableness',
+
+'Conscientiousness',
+
+'Neuroticism',
+
+'Openness'
+
+],
+
+datasets:[{
+
+label:item.nama,
+
+data:[
+
+item.extraversion,
+
+item.agreeableness,
+
+item.conscientiousness,
+
+item.neuroticism,
+
+item.openness
+
+]
+
+}]
+
+}
+
+});
+
+}
+
+
+</script>
+
+</body>
+</html>
