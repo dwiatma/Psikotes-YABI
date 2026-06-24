@@ -1,0 +1,150 @@
+/* Background */
+body{
+    background: linear-gradient(rgba(27,94,32,0.75),rgba(27,94,32,0.75)),
+                url("forest-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Overlay */
+.overlay{
+    position: fixed;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.15);
+    z-index:-1;
+}
+
+/* Card utama */
+.main-card{
+    max-width:850px;
+    margin:auto;
+    border:none;
+    border-radius:25px;
+    padding:40px;
+    background: rgba(255,255,255,0.96);
+}
+
+/* Logo */
+.logo{
+    width:120px;
+    margin-bottom:15px;
+}
+
+/* Judul */
+h1{
+    color:#1B5E20;
+    font-weight:700;
+}
+
+h3{
+    color:#2E7D32;
+}
+
+h4{
+    color:#1B5E20;
+    font-weight:600;
+}
+
+/* Input */
+.form-control,
+.form-select{
+    border-radius:15px;
+    padding:12px;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color:#2E7D32;
+    box-shadow:0 0 8px rgba(46,125,50,0.3);
+}
+
+/* Tombol */
+.btn-success{
+    background:#2E7D32;
+    border:none;
+    border-radius:15px;
+    padding:12px;
+    font-weight:600;
+}
+
+.btn-success:hover{
+    background:#1B5E20;
+}
+
+.btn-secondary{
+    border-radius:15px;
+}
+
+/* Progress bar */
+.progress{
+    height:25px;
+    border-radius:20px;
+}
+
+.progress-bar{
+    font-weight:bold;
+}
+
+/* Card soal */
+.question-card{
+    background:#F9FBE7;
+    border-radius:20px;
+    padding:30px;
+    border-left:7px solid #2E7D32;
+}
+
+/* Pilihan jawaban */
+.form-check{
+    background:white;
+    margin-bottom:12px;
+    padding:15px;
+    border-radius:15px;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.form-check:hover{
+    background:#E8F5E9;
+}
+
+.form-check-input{
+    margin-right:10px;
+}
+
+/* Halaman selesai */
+#finishSection{
+    text-align:center;
+}
+
+#finishSection h2{
+    color:#1B5E20;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+.main-card{
+    padding:20px;
+}
+
+.logo{
+    width:90px;
+}
+
+h1{
+    font-size:28px;
+}
+
+h3{
+    font-size:20px;
+}
+
+.question-card{
+    padding:20px;
+}
+
+}
